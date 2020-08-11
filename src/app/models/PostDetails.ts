@@ -4,6 +4,6 @@ export interface PostDetails{
     place: string;
     wadi: string;
     description:string;
-    imageUrl:String;
+    imageUrl:String[];
     createdDate:Date;
 }
