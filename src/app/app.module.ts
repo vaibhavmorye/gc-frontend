@@ -5,22 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     MainNavBarComponent,
-
     PostListComponent,
-    CreatePostComponent
+    CreatePostComponent,
+
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
