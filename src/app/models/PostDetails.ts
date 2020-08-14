@@ -6,4 +6,5 @@ export interface PostDetails{
     description:string;
     imageUrl:String[];
     createdDate:Date;
+    MultipartFiles:string[];
 }

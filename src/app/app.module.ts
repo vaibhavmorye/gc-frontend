@@ -8,7 +8,9 @@ import { MainNavBarComponent } from './main-nav-bar/main-nav-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {ImageCompressorService} from './image-compressor.service'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import { CreatePostComponent } from './create-post/create-post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ImageCompressorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

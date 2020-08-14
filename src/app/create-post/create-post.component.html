@@ -1,32 +1,61 @@
-<form [formGroup]="myForm" (ngSubmit)="submit()">
-     
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input 
-            formControlName="name"
-            id="name" 
-            type="text" 
-            class="form-control">
-        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
-            <div *ngIf="f.name.errors.required">Name is required.</div>
-            <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="file">File</label>
-        <input 
-            formControlName="file"
-            id="file" 
-            type="file" 
-            class="form-control"
-            (change)="onFileChange($event)">
-        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
-            <div *ngIf="f.file.errors.required">File is required.</div>
-        </div>
-    </div>
-    
-    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+<div class="container mt-6">
+    <span> Don't enter any sensitive information </span>
+<br/>   
+    <span> कोणतीही संवेदनशील माहिती प्रविष्ट करू नका </span>
+</div>
+<br/>
+<div class="container mt-7">
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
         
-    <button class="btn btn-primary" type="submit">Submit</button>
-</form>
+        <div class="form-group">
+            <label for="name">Name ( your short name or Your Ganpati bappas name/ तुमचे छोटे नाव किंवा गणपती बाप्पाचे नाव)</label>
+            <input formControlName="name" id="name" type="text" class="form-control">
+            <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                <div *ngIf="f.name.errors.required">Name is required.</div>
+                <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Description (Something about Bappa or Message to relatives who have not got chance to visit due to COVID 19/
+                बाप्पाबद्दल काही किंवा COVID 19 मुळे भेट घेण्याची संधी न मिळालेल्या नातेवाईकांना संदेश)</label>
+            <input formControlName="description" id="description" type="text" class="form-control">
+            <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
+                <div *ngIf="f.description.errors.required">Name is required.</div>
+                <div *ngIf="f.description.errors.minlength">Name should be 3 character.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">State & City/District & Village (Ex: Maharashtra-Sindhudurg-Kumbhavde / महाराष्ट्र - सिंधुदुर्ग - कुंभवडे) </label>
+            <input formControlName="city" id="city" type="text" class="form-control">
+            <div *ngIf="f.city.touched && f.city.invalid" class="alert alert-danger">
+                <div *ngIf="f.city.errors.required">Name is required.</div>
+                <div *ngIf="f.city.errors.minlength">Name should be 3 character.</div>
+            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="wadi">Wadi (कोकणासाठी विशेष 😉 Ex: जंगमवाडी, वरचीवाडी)</label>
+            <input formControlName="wadi" id="wadi" type="text" class="form-control">
+            <div *ngIf="f.wadi.touched && f.wadi.invalid" class="alert alert-danger">
+                <div *ngIf="f.wadi.errors.required">Name is required.</div>
+                <div *ngIf="f.wadi.errors.minlength">Name should be 3 character.</div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <label for="files">Photos (Bappa & Decoretion Photo / 
+                बाप्पाचे आणि सजावट फोटो)</label>
+            <input formControlName="files" id="files" type="file" class="form-control" multiple="multiple"
+                accept=".jpg, .png, .jpeg" (change)="onFileChange($event)">
+            <div *ngIf="f.files.touched && f.files.invalid" class="alert alert-danger">
+                <div *ngIf="f.files.errors.required">File is required.</div>
+            </div>
+
+        </div>
+
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
