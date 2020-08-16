@@ -1,10 +1,13 @@
 export interface PostDetails{
     id: number;
     name: string;
-    place: string;
+    city: string;
     wadi: string;
     description:string;
-    imageUrl:String[];
+    imageUrls:String[];
+    imageUrl:string;
     createdDate:Date;
-    MultipartFiles:string[];
+    updatedDate:Date;
+    classId:string;
+    
 }

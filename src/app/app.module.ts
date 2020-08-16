@@ -9,8 +9,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {ImageCompressorService} from './image-compressor.service'
+import { ImageCompressService,ResizeOptions,ImageUtilityService } from 'ng2-image-compress';
 import { HttpClientModule } from '@angular/common/http';
+import { SinglePostComponent } from './single-post/single-post.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainNavBarComponent,
     PostListComponent,
     CreatePostComponent,
+    SinglePostComponent,
+    PaginatorComponent,
 
     
   ],
@@ -29,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ImageCompressorService],
+  providers: [ImageCompressService,ResizeOptions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,22 @@
 <br/>
 <div class="container mt-7">
     <form [formGroup]="myForm" (ngSubmit)="submit()">
-        
+
+        <div class="form-group">
+            <label for="file1">Photos :1 (Bappa & Decoretion Photo / 
+                बाप्पाचे आणि सजावट फोटो)</label>
+            <input formControlName="file1" id="file1" type="file" class="form-control" multiple="multiple"
+                accept=".jpg, .png, .jpeg" (change)="onFileChange($event)">
+            <div *ngIf="f.file1.touched && f.file1.invalid" class="alert alert-danger">
+                <div *ngIf="f.file1.errors.required">File is required.</div>
+            </div>
+
+        </div>
+
+       
+
+
+
         <div class="form-group">
             <label for="name">Name ( your short name or Your Ganpati bappas name/ तुमचे छोटे नाव किंवा गणपती बाप्पाचे नाव)</label>
             <input formControlName="name" id="name" type="text" class="form-control">
@@ -44,16 +59,7 @@
         </div>
         
 
-        <div class="form-group">
-            <label for="files">Photos (Bappa & Decoretion Photo / 
-                बाप्पाचे आणि सजावट फोटो)</label>
-            <input formControlName="files" id="files" type="file" class="form-control" multiple="multiple"
-                accept=".jpg, .png, .jpeg" (change)="onFileChange($event)">
-            <div *ngIf="f.files.touched && f.files.invalid" class="alert alert-danger">
-                <div *ngIf="f.files.errors.required">File is required.</div>
-            </div>
-
-        </div>
+        
 
 
         <button class="btn btn-primary" type="submit">Submit</button>
