@@ -71,19 +71,19 @@
           <p class="card-text">{{postDetails.description}}</p>
           
           <ul class="list-group list-group-horizontal col wrapper">
-            <li class="list-group-item ">
-              <a href="#" class="btn btn-outline-success">
-                <img src="https://img.icons8.com/office/40/000000/filled-like.png"/>
+            <li class="list-group-item">
+              <a  class="btn btn-outline- danger"  (click)="vote()">{{postDetails.vote}}
+                <fa-icon [icon]="sfaHeart" ></fa-icon>
             </a>
             </li >
             <li class="list-group-item">
-              <a href="#" class="btn btn-outline-success">
-                <img src="https://img.icons8.com/officel/40/000000/donate.png" />
+              <a class="btn btn-outline-warning">Donate
+                <fa-icon  [icon]="sfahandholdingUSD"></fa-icon>
               </a>
             </li>
             <li class="list-group-item"> 
-              <a class="btn btn-outline-success" href="whatsapp://send?text=The text to share!">
-                <img src="https://img.icons8.com/officel/40/000000/whatsapp.png" />
+              <a class="btn btn-outline-success" href="whatsapp://send?text=The text to share!"> Share
+                <img src="https://img.icons8.com/officel/30/000000/whatsapp.png"/>
               </a>
             </li>
 

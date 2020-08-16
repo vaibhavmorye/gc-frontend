@@ -1,7 +1,7 @@
 <div class="container mt-7">
-  <app-post *ngFor="let post of postList" [postDetails]=post></app-post>
+  <app-post *ngFor="let post of postList | paginate: config" [postDetails]=post></app-post>
  
-  <!-- <pagination-controls 
+  <pagination-controls 
   [maxSize]="maxSize"
   [directionLinks]="directionLinks"
   [autoHide]="autoHide"
@@ -11,5 +11,6 @@
   [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
   [screenReaderPageLabel]="labels.screenReaderPageLabel"
   [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-  (pageChange)="onPageChange($event)"></pagination-controls> -->
+  (pageChange)="onPageChange($event)"></pagination-controls>
+  
 </div>

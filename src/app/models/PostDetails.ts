@@ -9,5 +9,5 @@ export interface PostDetails{
     createdDate:Date;
     updatedDate:Date;
     classId:string;
-    
+    vote:number;
 }

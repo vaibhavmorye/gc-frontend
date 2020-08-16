@@ -13,6 +13,10 @@ import { ImageCompressService,ResizeOptions,ImageUtilityService } from 'ng2-imag
 import { HttpClientModule } from '@angular/common/http';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import {CookieService } from "ngx-cookie-service";
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     CreatePostComponent,
     SinglePostComponent,
     PaginatorComponent,
+    HomeComponent,
 
     
   ],
@@ -31,9 +36,13 @@ import { PaginatorComponent } from './paginator/paginator.component';
     AppRoutingModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
+    
   ],
-  providers: [ImageCompressService,ResizeOptions],
+  providers: [ImageCompressService,ResizeOptions, CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

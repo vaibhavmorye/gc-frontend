@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import{PostListResponse} from '../models/PostListRespons';
 import {PostDetails} from '../models/PostDetails';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class PostListComponent implements OnInit { 
-  
+export class HomeComponent implements OnInit {
+
   public sortBy:string="default";
   public postList: PostDetails[];
   total_count = 0;
@@ -74,5 +75,6 @@ export class PostListComponent implements OnInit {
     console.log("event :", event);
     this.getPost();
   }
+
 
 }
