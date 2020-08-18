@@ -10,4 +10,6 @@ export interface PostDetails{
     updatedDate:Date;
     classId:string;
     vote:number;
+    report:number;
+    position:number;
 }

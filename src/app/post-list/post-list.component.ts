@@ -47,9 +47,6 @@ export class PostListComponent implements OnInit {
 
   getPost(){
     var sortby = "";
-    
-  
-
     this.http.get<PostListResponse>("//localhost:8080/morya/posts?pageNo="+this.config.currentPage).subscribe(data=>{
       this.postList = data.posts;
       this.collection.data= data.posts;
@@ -64,7 +61,7 @@ export class PostListComponent implements OnInit {
       this.collection.count = data;
       this.config = {
         itemsPerPage: 5,
-        currentPage: 1,
+        currentPage: 0,
         totalItems: data
       };
     })

@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
   public sortBy:string="default";
   public postList: PostDetails[];
   total_count = 0;
-  
+  filters: string[]=["Most Likes", "Few Likes", "New", "Old"];
+  currentfilter:string="New";
+
   /**pagination parameters
    *
    */
@@ -43,18 +45,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCount();
+
   }
 
   getPost(){
-    var sortby = "";
-    
+    var sortby = "&sortBy="+this.currentfilter;
   
-
-    this.http.get<PostListResponse>("//localhost:8080/morya/posts?pageNo="+this.config.currentPage).subscribe(data=>{
+    this.http.get<PostListResponse>("//localhost:8080/morya/posts?pageNo="+this.config.currentPage+sortby).subscribe(data=>{
       this.postList = data.posts;
       this.collection.data= data.posts;
-      console.log("data:",   data);
     });
 
   }
@@ -75,6 +74,32 @@ export class HomeComponent implements OnInit {
     console.log("event :", event);
     this.getPost();
   }
+  
+  filterForeCasts(filterVal: any) {
+    this.config.currentPage = 0;
+    this.currentfilter = filterVal;
+    this.getPost();
+}
+
+setAd(position:number){
+    if (position%3 === 0)
+      return true;
+    return false;
+  }
 
 
+  onKey(event: any) { // without type info
+    console.log( event.target.value + ' | ');
+    this.searchByNameOrPlaceOrWadi(event.target.value);
+  }
+
+  searchByNameOrPlaceOrWadi(str){
+    var searchTerm= "&searchTerm="+str;
+    this.config.currentPage = 0;
+    this.http.get<PostListResponse>("//localhost:8080/morya/search?pageNo="+this.config.currentPage+searchTerm).subscribe(data=>{
+      this.postList = data.posts;
+      this.collection.data= data.posts;
+      console.log("data:",   data);
+    });
+  }
 }

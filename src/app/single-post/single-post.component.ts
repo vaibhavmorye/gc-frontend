@@ -17,11 +17,11 @@
 
     ngOnInit() {
 
-      this.route.queryParams
+      this.route.params
         .subscribe(params => {
           console.log(params); // { order: "popular" }
 
-          this.order = params.id;
+          this.order = params["id"];
           this.getPost();
           console.log(this.order); // popular
         }

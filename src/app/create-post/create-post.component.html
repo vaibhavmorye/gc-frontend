@@ -18,16 +18,13 @@
 
         </div>
 
-       
-
-
-
         <div class="form-group">
             <label for="name">Name ( your short name or Your Ganpati bappas name/ तुमचे छोटे नाव किंवा गणपती बाप्पाचे नाव)</label>
             <input formControlName="name" id="name" type="text" class="form-control">
             <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
                 <div *ngIf="f.name.errors.required">Name is required.</div>
                 <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+                <div *ngIf="f.name.errors.maxlength">Name should be 60 character.</div>
             </div>
         </div>
 
@@ -38,6 +35,7 @@
             <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
                 <div *ngIf="f.description.errors.required">Name is required.</div>
                 <div *ngIf="f.description.errors.minlength">Name should be 3 character.</div>
+                <div *ngIf="f.name.errors.maxlength">Name should be 400 character.</div>
             </div>
         </div>
         <div class="form-group">
@@ -46,6 +44,7 @@
             <div *ngIf="f.city.touched && f.city.invalid" class="alert alert-danger">
                 <div *ngIf="f.city.errors.required">Name is required.</div>
                 <div *ngIf="f.city.errors.minlength">Name should be 3 character.</div>
+                <div *ngIf="f.name.errors.maxlength">Name should be 60 character.</div>
             
             </div>
         </div>
@@ -55,6 +54,7 @@
             <div *ngIf="f.wadi.touched && f.wadi.invalid" class="alert alert-danger">
                 <div *ngIf="f.wadi.errors.required">Name is required.</div>
                 <div *ngIf="f.wadi.errors.minlength">Name should be 3 character.</div>
+                <div *ngIf="f.name.errors.maxlength">Name should be 40 character.</div>
             </div>
         </div>
         
@@ -65,3 +65,7 @@
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+    </ngx-spinner>  

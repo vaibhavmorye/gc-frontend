@@ -27,17 +27,17 @@ export class PostComponent implements OnInit {
   vote(){
    var cookieName ="gc_vote" ;
    var cookie = this.cookieService.get(cookieName);
-    if (cookie.includes(this.postDetails.id.toString())){ 
+    if (!cookie.includes(this.postDetails.id.toString())){ 
       cookie = cookie + " "+ this.postDetails.id.toString();   
       this.cookieService.set(cookieName, cookie);
       this.updateVote()
       return false;
     }
    console.log("cookies : ", cookie);
-   if (cookie == ''){
-    this.cookieService.set(cookieName, this.postDetails.id.toString() );
-    return false;
-   }
+  //  if (cookie == ''){
+  //   this.cookieService.set(cookieName, this.postDetails.id.toString() );
+  //   return false;
+  //  }
  
    return false;
   }

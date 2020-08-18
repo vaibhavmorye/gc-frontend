@@ -9,11 +9,12 @@ import { CreatePostComponent } from './create-post/create-post.component';
 
 
 
-const routes: Routes = [ { path: 'post/:id', component: PostComponent },
+const routes: Routes = [ 
 { path: 'list/:type', component: PostListComponent },
 { path: 'create', component: CreatePostComponent },
 { path: 'home', component: HomeComponent },
 {path: 'p', component:SinglePostComponent}, 
+{ path: '', component: HomeComponent },
 ];
 
 @NgModule({

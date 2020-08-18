@@ -1,16 +1,42 @@
-<div class="container mt-7">
-    <app-post *ngFor="let post of postList | paginate: config" [postDetails]=post></app-post>
-   
-    <pagination-controls 
-    [maxSize]="maxSize"
-    [directionLinks]="directionLinks"
-    [autoHide]="autoHide"
-    [responsive]="responsive"
-    [previousLabel]="labels.previousLabel"
-    [nextLabel]="labels.nextLabel"
-    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-    [screenReaderPageLabel]="labels.screenReaderPageLabel"
-    [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-    (pageChange)="onPageChange($event)"></pagination-controls>
-    
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="btn btn-secondary dropdown-toggle">
+      <label>Filter: </label>
+      <select (change)="filterForeCasts($event.target.value)">
+        <option value="0">--All--</option>
+        <option *ngFor="let filter of filters" value={{filter}}>
+          {{filter}}
+        </option>
+      </select>
+
+      <div class="input-group mb-3 ">
+        <input type="text" class="form-control" placeholder="Search Name, place, wad" aria-label="Username"
+          aria-describedby="basic-addon1" (keyup.enter)="onKey($event)">
+      </div>
+    </div>
   </div>
+  <div *ngFor="let post of postList | paginate: config">
+    <app-post [postDetails]=post></app-post>
+
+
+    <div *ngIf="setAd(post.position)">
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-12">
+            <div class="card">
+              Insta Ad
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+    [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+    [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+    (pageChange)="onPageChange($event)"></pagination-controls>
+
+</div>

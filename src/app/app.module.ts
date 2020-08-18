@@ -12,11 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImageCompressService,ResizeOptions,ImageUtilityService } from 'ng2-image-compress';
 import { HttpClientModule } from '@angular/common/http';
 import { SinglePostComponent } from './single-post/single-post.component';
-import { PaginatorComponent } from './paginator/paginator.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import {CookieService } from "ngx-cookie-service";
-
+import { NgxSpinnerModule } from "ngx-spinner"; 
+import {  RxReactiveFormsModule } from "@rxweb/reactive-form-validators";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ import {CookieService } from "ngx-cookie-service";
     PostListComponent,
     CreatePostComponent,
     SinglePostComponent,
-    PaginatorComponent,
     HomeComponent,
 
     
@@ -37,8 +37,9 @@ import {CookieService } from "ngx-cookie-service";
     NgxPaginationModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NgxSpinnerModule ,
+     
   ],
   providers: [ImageCompressService,ResizeOptions, CookieService],
   bootstrap: [AppComponent]
